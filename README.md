@@ -22,7 +22,13 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
 
-TODO: Write usage instructions here
+To add [MegaLinter](https://megalinter.io/) to your project, run the following at the command line:
+
+    way_of_working init code_linting
+
+to run MegaLinter in your project, run:
+
+    way_of_working exec code_linting
 
 ## Development
 
