@@ -1,8 +1,8 @@
 # WayOfWorking::CodeLinting::Hdi
 
-TODO: Delete this and the text below, and describe your gem
+We use [MegaLinter](https://megalinter.io/) for the majority of our code lining, currently with separate Ruby testing with RuboCop.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/way_of_working-code_linting-hdi`. To experiment with that code, run `bin/console` for an interactive prompt.
+Code linters like MegaLinter benefit developers and teams because they help improve code quality, reduce errors and inconsistencies, and streamline development. Linters analyze source code for common issues, such as syntax errors, undefined variables, and unused code, and provide suggestions and feedback for improvement.
 
 ## Installation
 

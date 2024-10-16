@@ -19,11 +19,13 @@ module WayOfWorking
           test 'files are created and revoked' do
             run_generator
 
-            assert_file 'docs/code-linting/linters.md'
+            assert_file 'docs/way_of_working/code-linting/index.md'
+            assert_file 'docs/way_of_working/code-linting/linters.md'
 
             run_generator [], behavior: :revoke
 
-            assert_no_file 'docs/code-linting/linters.md'
+            assert_no_file 'docs/way_of_working/code-linting/index.md'
+            assert_no_file 'docs/way_of_working/code-linting/linters.md'
           end
         end
       end

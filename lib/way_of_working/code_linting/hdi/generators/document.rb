@@ -126,7 +126,8 @@ module WayOfWorking
 
           # Method to create the linter documentation using a template
           def create_linters_documentation
-            template 'docs/code-linting/linters.md'
+            template 'docs/way_of_working/code-linting/linters.md'
+            copy_file 'docs/way_of_working/code-linting/index.md'
           end
 
           private
