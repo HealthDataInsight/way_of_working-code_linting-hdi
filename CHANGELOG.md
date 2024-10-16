@@ -10,4 +10,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Added a document command to update the list of used and available linters
+- Added Swiftlint build phase to Xcode projects
 - Added MegaLinter for linting common file formats with generator command and rake task
