@@ -15,29 +15,44 @@ module WayOfWorking
   end
 
   module SubCommands
-    # # This reopens the "way_of_working audit" sub command
-    # class Audit
-    #   register(CodeLinting::Hdi::Generators::Audit, 'code_linting', 'code_linting',
-    # end
-    
-    # # This reopens the "way_of_working document" sub command
-    # class Document
-    #   register(CodeLinting::Hdi::Generators::Document, 'code_linting', 'code_linting',
-    # end
-    
-    # # This reopens the "way_of_working exec" sub command
-    # class Exec
-    #   register(CodeLinting::Hdi::Generators::Exec, 'code_linting', 'code_linting',
-    # end
+    # This reopens the "way_of_working document" sub command
+    class Document
+      register(CodeLinting::Hdi::Generators::Document, 'code_linting', 'code_linting',
+               <<~LONGDESC)
+                 Description:
+                     This documents code linting on this project
 
-    # # This reopens the "way_of_working init" sub command
-    # class Init
-    #   register(CodeLinting::Hdi::Generators::Init, 'code_linting', 'code_linting',
-    # end
+                 Example:
+                     way_of_working document code_linting
+               LONGDESC
+    end
+    
+    # This reopens the "way_of_working exec" sub command
+    class Exec
+      register(CodeLinting::Hdi::Generators::Exec, 'code_linting', 'code_linting',
+               <<~LONGDESC)
+                 Description:
+                     This runs code linting on this project
 
-    # # This reopens the "way_of_working new" sub command
-    # class New
-    #   register(CodeLinting::Hdi::Generators::New, 'code_linting', 'code_linting [NAME]',
-    # end
+                 Example:
+                     way_of_working exec code_linting
+               LONGDESC
+    end
+
+    # This reopens the "way_of_working init" sub command
+    class Init
+      register(CodeLinting::Hdi::Generators::Init, 'code_linting', 'code_linting',
+               <<~LONGDESC)
+                 Description:
+                     Installs code linting config files into the project
+
+                 Example:
+                     way_of_working init code_linting
+
+                     This will create:
+                         .github/workflows/mega-linter.yml
+                         .mega-linter.yml
+               LONGDESC
+    end
   end
 end
