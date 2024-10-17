@@ -5,8 +5,8 @@ module WayOfWorking
     module Hdi
       module Generators
         # This class tests the Linter::Init Thor Group (generator)
-        class DocumentTest < Rails::Generators::TestCase
-          tests WayOfWorking::CodeLinting::Hdi::Generators::Document
+        class DocumentLintersTest < Rails::Generators::TestCase
+          tests WayOfWorking::CodeLinting::Hdi::Generators::Init
           destination WayOfWorking.root.join('tmp/generators')
           setup :prepare_destination
 

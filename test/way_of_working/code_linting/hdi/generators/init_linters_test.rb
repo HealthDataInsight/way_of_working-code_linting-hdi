@@ -5,7 +5,7 @@ module WayOfWorking
     module Hdi
       module Generators
         # This class tests the Linter::Init Thor Group (generator)
-        class InitTest < Rails::Generators::TestCase
+        class InitLintersTest < Rails::Generators::TestCase
           tests WayOfWorking::CodeLinting::Hdi::Generators::Init
           destination WayOfWorking.root.join('tmp/generators')
           setup :prepare_destination
@@ -49,15 +49,15 @@ module WayOfWorking
             run_generator
 
             assert_file 'XcodeApp.xcodeproj/project.pbxproj' do |content|
-              assert_match(Init::LINTING_BUILD_PHASE, content)
-              assert_match(Init::LINTING_BUILD_PHASE_DETAILS, content)
+              assert_match(InitLinters::LINTING_BUILD_PHASE, content)
+              assert_match(InitLinters::LINTING_BUILD_PHASE_DETAILS, content)
             end
 
             run_generator [], behavior: :revoke
 
             assert_file 'XcodeApp.xcodeproj/project.pbxproj' do |content|
-              refute_match(Init::LINTING_BUILD_PHASE, content)
-              refute_match(Init::LINTING_BUILD_PHASE_DETAILS, content)
+              refute_match(InitLinters::LINTING_BUILD_PHASE, content)
+              refute_match(InitLinters::LINTING_BUILD_PHASE_DETAILS, content)
             end
           end
 
