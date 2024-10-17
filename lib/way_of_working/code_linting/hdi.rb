@@ -15,18 +15,6 @@ module WayOfWorking
   end
 
   module SubCommands
-    # This reopens the "way_of_working document" sub command
-    class Document
-      register(CodeLinting::Hdi::Generators::Document, 'code_linting', 'code_linting',
-               <<~LONGDESC)
-                 Description:
-                     This documents code linting on this project
-
-                 Example:
-                     way_of_working document code_linting
-               LONGDESC
-    end
-    
     # This reopens the "way_of_working exec" sub command
     class Exec
       register(CodeLinting::Hdi::Generators::Exec, 'code_linting', 'code_linting',

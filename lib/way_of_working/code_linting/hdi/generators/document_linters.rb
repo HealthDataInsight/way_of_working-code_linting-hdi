@@ -12,7 +12,7 @@ module WayOfWorking
     module Hdi
       module Generators
         # This class is responsible for generating linter documentation
-        class Document < Thor::Group
+        class DocumentLinters < Thor::Group
           include Thor::Actions # Mixin for action methods provided by Thor
 
           # Set the source root for the templates

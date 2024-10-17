@@ -13,6 +13,9 @@ module WayOfWorking
 
           source_root ::WayOfWorking::CodeLinting::Hdi.source_root
 
+          # Document the linters
+          invoke DocumentLinters
+
           LINTING_BUILD_PHASE =
             "				2F0882F42AAB152D00DB0B2B /* ShellScript */,\n"
           LINTING_BUILD_PHASE_DETAILS = <<~CONFIG
