@@ -21,4 +21,4 @@ max_details_length = linters.map(&:details).map(&:length).max
 <% linters.sort_by(&:sorter).each do |linter| -%>
 | <%= linter.language.ljust(max_language_length) %> | <%= linter.constant_name.ljust(max_constant_name_length) %> | <%= linter.details.ljust(max_details_length) %> |
 <% end -%>
-<% end %>
+<% end -%>
