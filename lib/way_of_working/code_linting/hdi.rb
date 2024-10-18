@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'way_of_working/cli'
+require 'way_of_working'
 require_relative 'hdi/paths'
 require 'zeitwerk'
 
