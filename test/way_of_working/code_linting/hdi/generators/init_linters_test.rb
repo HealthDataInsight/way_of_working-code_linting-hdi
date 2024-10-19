@@ -68,7 +68,7 @@ module WayOfWorking
             xcode_project_destination_directory = destination_root.join('XcodeApp.xcodeproj')
             FileUtils.mkdir(xcode_project_destination_directory)
             FileUtils.copy WayOfWorking.root.join('test', 'resources', 'XcodeApp.xcodeproj', 'project.pbxproj'),
-                          xcode_project_destination_directory.join('project.pbxproj')
+                           xcode_project_destination_directory.join('project.pbxproj')
           end
         end
       end

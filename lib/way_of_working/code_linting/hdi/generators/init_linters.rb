@@ -76,12 +76,12 @@ module WayOfWorking
             return unless xcode_project_file && File.exist?(xcode_project_file)
 
             inject_into_file xcode_project_file,
-                            LINTING_BUILD_PHASE,
-                            after: "buildPhases = (\n"
+                             LINTING_BUILD_PHASE,
+                             after: "buildPhases = (\n"
 
             inject_into_file xcode_project_file,
-                            LINTING_BUILD_PHASE_DETAILS,
-                            after: "/* End PBXResourcesBuildPhase section */\n\n"
+                             LINTING_BUILD_PHASE_DETAILS,
+                             after: "/* End PBXResourcesBuildPhase section */\n\n"
           end
 
           private
