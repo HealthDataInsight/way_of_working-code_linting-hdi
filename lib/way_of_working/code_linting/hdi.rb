@@ -4,6 +4,15 @@ require 'way_of_working'
 require_relative 'hdi/paths'
 require 'zeitwerk'
 
+# If way_of_working-audit-github is used we can add a rule
+github_audit_used =
+  begin
+    require 'way_of_working/audit/github/rules/registry'
+  rescue LoadError
+    false
+  end
+require_relative 'hdi/github_audit_rule' if github_audit_used
+
 loader = Zeitwerk::Loader.for_gem_extension(WayOfWorking::CodeLinting)
 loader.ignore("#{__dir__}/hdi/plugin.rb")
 loader.setup
