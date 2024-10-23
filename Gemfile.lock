@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/HealthDataInsight/way_of_working.git
   revision: a9b467074162ca1ac8135a88b82c011dd67a0557
-  branch: feature/v2-wip
+  branch: main
   specs:
     way_of_working (2.0.0)
       activesupport
