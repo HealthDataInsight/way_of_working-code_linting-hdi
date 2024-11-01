@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'way_of_working/github_audit/rules/base'
+require 'way_of_working/audit/github/rules/base'
 
 module WayOfWorking
   module CodeLinting
@@ -8,25 +8,53 @@ module WayOfWorking
     module Hdi
       # This rule checks for the MegaLinter workflow action and README badge.
       class GithubAuditRule < ::WayOfWorking::Audit::Github::Rules::Base
-        def valid?
-          response = @client.workflows(@repo_name)
+        source_root WayOfWorking::CodeLinting::Hdi.source_root
 
-          @errors << 'No MegaLinter GitHub Action' unless response.workflows.map(&:name).include?('MegaLinter')
+        def validate
+          workflows = @client.workflows(@repo_name).workflows
+          @errors << 'No HDI MegaLinter GitHub Action' unless workflows.map(&:name).include?('MegaLinter')
 
-          @errors << 'No MegaLinter README Badge' unless megalinter_badge?
+          @errors << 'No HDI MegaLinter README Badge' unless megalinter_badge?
 
-          @errors.empty? ? :passed : :failed
+          validate_repo_file_contains_source_file(
+            '.github/linters/rubocop_defaults.yml',
+            '.mega-linter.yml',
+            '.rubocop'
+          )
         end
 
         private
+
+        def repo_file_contains_source_file?(path)
+          repo_file_contains?(path, File.read(self.class.source_root.join(path)))
+        end
+
+        def repo_file_contains?(path, text)
+          remote_content = repo_file_contents(path)
+          return false if remote_content.nil?
+
+          remote_content.include?(text)
+        end
+
+        def validate_repo_file_contains_source_file(*paths)
+          paths.each do |path|
+            if repo_file_contents(path).nil?
+              @errors << "#{path} missing"
+              next
+            end
+
+            @errors << "#{path} does not match the source template" unless repo_file_contains_source_file?(path)
+          end
+        end
 
         def megalinter_badge?
           readme_content.include?("[![MegaLinter](https://github.com/#{@repo_name}/workflows/MegaLinter/badge.svg")
         end
       end
 
-      ::WayOfWorking::Audit::Github::Rules::Registry.register(GithubActionAndBadge,
-                                                              'MegaLinter GitHub Action and README badge')
+      ::WayOfWorking::Audit::Github::Rules::Registry.register(
+        GithubAuditRule, 'HDI MegaLinter GitHub Action and README badge'
+      )
     end
   end
 end
