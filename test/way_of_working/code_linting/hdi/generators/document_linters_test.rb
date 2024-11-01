@@ -7,7 +7,7 @@ module WayOfWorking
         # This class tests the Linter::Init Thor Group (generator)
         class DocumentLintersTest < Rails::Generators::TestCase
           tests WayOfWorking::CodeLinting::Hdi::Generators::Init
-          destination WayOfWorking.root.join('tmp/generators')
+          destination WayOfWorking::CodeLinting::Hdi.root.join('tmp/generators')
           setup :prepare_destination
 
           test 'generator runs without errors' do

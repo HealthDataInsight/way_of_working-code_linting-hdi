@@ -7,7 +7,7 @@ module WayOfWorking
         # This class tests the Linter::Init Thor Group (generator)
         class InitLintersTest < Rails::Generators::TestCase
           tests WayOfWorking::CodeLinting::Hdi::Generators::Init
-          destination WayOfWorking.root.join('tmp/generators')
+          destination WayOfWorking::CodeLinting::Hdi.root.join('tmp/generators')
           setup :prepare_destination
 
           test 'generator runs without errors' do
@@ -67,7 +67,7 @@ module WayOfWorking
           def prepare_xcode_project
             xcode_project_destination_directory = destination_root.join('XcodeApp.xcodeproj')
             FileUtils.mkdir(xcode_project_destination_directory)
-            FileUtils.copy WayOfWorking.root.join('test', 'resources', 'XcodeApp.xcodeproj', 'project.pbxproj'),
+            FileUtils.copy WayOfWorking::CodeLinting::Hdi.root.join('test', 'resources', 'XcodeApp.xcodeproj', 'project.pbxproj'),
                            xcode_project_destination_directory.join('project.pbxproj')
           end
         end

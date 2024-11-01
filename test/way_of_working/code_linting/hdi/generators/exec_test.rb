@@ -9,7 +9,7 @@ module WayOfWorking
         # This class tests the Linter::Exec Thor Group (generator)
         class ExecTest < Rails::Generators::TestCase
           tests WayOfWorking::CodeLinting::Hdi::Generators::Exec
-          destination WayOfWorking.root.join('tmp/generators')
+          destination WayOfWorking::CodeLinting::Hdi.root.join('tmp/generators')
 
           test 'generator runs without errors' do
             generator_class.any_instance.stubs(:run_rubocop).returns(true)
