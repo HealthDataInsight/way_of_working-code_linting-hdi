@@ -1,5 +1,10 @@
 # WayOfWorking::CodeLinting::Hdi
 
+<!-- Way of Working: Main Badge Holder Start -->
+![Way of Working Badge](https://img.shields.io/badge/Way_of_Working-v2.0.1-%238169e3?labelColor=black)
+<!-- Way of Working: Additional Badge Holder Start -->
+<!-- Way of Working: Badge Holder End -->
+
 We use [MegaLinter](https://megalinter.io/) for the majority of our code lining, currently with separate Ruby testing with RuboCop.
 
 Code linters like MegaLinter benefit developers and teams because they help improve code quality, reduce errors and inconsistencies, and streamline development. Linters analyze source code for common issues, such as syntax errors, undefined variables, and unused code, and provide suggestions and feedback for improvement.
