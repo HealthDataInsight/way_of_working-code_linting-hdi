@@ -5,7 +5,7 @@ on: push  # yamllint disable-line rule:truthy
 permissions: read-all
 
 jobs:
-  test_accessibility:
+  test_inclusivity:
     name: Inclusive Language Tests
     runs-on: ubuntu-latest
     steps:
