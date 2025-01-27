@@ -87,7 +87,6 @@ module WayOfWorking
           private
 
           def xcode_project_file
-            # puts Dir.glob(File.join(destination_root)).inspect
             Dir.glob(File.join(destination_root, '*.xcodeproj/project.pbxproj')).first
           end
 
