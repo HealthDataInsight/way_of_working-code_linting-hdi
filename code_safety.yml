@@ -1,0 +1,186 @@
+---
+file safety:
+  ".alexrc":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  ".github/linters/.markdown-link-check.json":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  ".github/linters/rubocop_defaults.yml":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  ".github/workflows/inclusive-language.yml":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  ".github/workflows/main.yml":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  ".github/workflows/mega-linter.yml":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  ".gitignore":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  ".mega-linter.yml":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  ".rubocop":
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  CHANGELOG.md:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  Gemfile:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  Gemfile.lock:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  LICENSE.txt:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  README.md:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  Rakefile:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  bin/console:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  bin/setup:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  docs/way_of_working/code-linting/index.md:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  docs/way_of_working/code-linting/linters.md:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/generators/document_linters.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/generators/exec.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/generators/init.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/generators/init_linters.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/github_audit_rule.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/paths.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  lib/way_of_working/code_linting/hdi/plugin.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/supported_linter.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/templates/.github/linters/.markdown-link-check.json:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/templates/.github/linters/rubocop_defaults.yml:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/templates/.github/workflows/mega-linter.yml:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/templates/.mega-linter.yml:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/templates/.rubocop:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/templates/docs/way_of_working/code-linting/index.md:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/templates/docs/way_of_working/code-linting/linters.md.tt:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  lib/way_of_working/code_linting/hdi/version.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/resources/XcodeApp.xcodeproj/project.pbxproj:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/test_helper.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  test/way_of_working/audit_github_stub_classes.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/way_of_working/code_linting/hdi/generators/document_linters_test.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/way_of_working/code_linting/hdi/generators/exec_test.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/way_of_working/code_linting/hdi/generators/init_linters_test.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/way_of_working/code_linting/hdi/github_audit_rule_test.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/way_of_working/code_linting/hdi/zeitwerk_loader_test.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+  test/way_of_working/code_linting/hdi_test.rb:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
+  way_of_working-code_linting-hdi.gemspec:
+    comments:
+    reviewed_by: shilpigoeldev
+    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
