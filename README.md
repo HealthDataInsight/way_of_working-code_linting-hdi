@@ -1,8 +1,13 @@
 # WayOfWorking::CodeLinting::Hdi
 
-TODO: Delete this and the text below, and describe your gem
+<!-- Way of Working: Main Badge Holder Start -->
+![Way of Working Badge](https://img.shields.io/badge/Way_of_Working-v2.0.1-%238169e3?labelColor=black)
+<!-- Way of Working: Additional Badge Holder Start -->
+<!-- Way of Working: Badge Holder End -->
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/way_of_working-code_linting-hdi`. To experiment with that code, run `bin/console` for an interactive prompt.
+We use [MegaLinter](https://megalinter.io/) for the majority of our code lining, currently with separate Ruby testing with RuboCop.
+
+Code linters like MegaLinter benefit developers and teams because they help improve code quality, reduce errors and inconsistencies, and streamline development. Linters analyze source code for common issues, such as syntax errors, undefined variables, and unused code, and provide suggestions and feedback for improvement.
 
 ## Installation
 
@@ -22,7 +27,17 @@ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
 
 ## Usage
 
-TODO: Write usage instructions here
+To add [MegaLinter](https://megalinter.io/) to your project, run the following at the command line:
+
+```bash
+way_of_working init code_linting
+```
+
+to run MegaLinter in your project, run:
+
+```bash
+way_of_working exec code_linting
+```
 
 ## Development
 
@@ -32,7 +47,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/HealthDataInsight/way_of_working-code_linting-hdi. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/HealthDataInsight/way_of_working-code_linting-hdi/blob/main/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at <https://github.com/HealthDataInsight/way_of_working-code_linting-hdi>. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/HealthDataInsight/way_of_working-code_linting-hdi/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
