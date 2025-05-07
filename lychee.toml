@@ -1,0 +1,5 @@
+# Exclude URLs and mail addresses from checking (supports regex).
+exclude = [
+    '^https://megalinter\.io', 
+    '^https://healthdatainsight\.sharepoint\.com'
+]
