@@ -51,7 +51,7 @@ jobs:
 
         # You can override MegaLinter flavor used to have faster performances
         # More info at https://megalinter.io/latest/flavors/
-        uses: oxsecurity/megalinter@v8
+        uses: HealthDataInsight/megalinter-custom-flavor-hdi@main
 
         id: ml
 
