@@ -56,7 +56,7 @@ module WayOfWorking
             # We don't have these files in the repo, but we want to protect them in CODEOWNERS
             protect_files_in_codeowners '.markdownlintignore', '.markdownlint.*'
 
-            prepend_to_file 'CHANGELOG.md', "<!-- markdownlint-disable-file MD024 -->\n" if File.exist?('CHANGELOG.md')
+            prepend_to_file_if_exists 'CHANGELOG.md', "<!-- markdownlint-disable-file MD024 -->\n"
           end
 
           def configure_eslint
@@ -112,6 +112,12 @@ module WayOfWorking
           end
 
           private
+
+          def prepend_to_file_if_exists(file, content)
+            file_path = File.join(destination_root, file)
+
+            prepend_to_file file, content if File.exist?(file_path)
+          end
 
           def protect_and_copy_file(file)
             protect_files_in_codeowners(file)
