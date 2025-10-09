@@ -109,9 +109,9 @@ module WayOfWorking
           end
 
           def javascript_files_present?
-            Dir.glob(File.join(destination_root, '**/*.{js,jsx,mjs,cjs}'))
-               .reject { |file| file.end_with?('.eslintrc.js') }
-               .any?
+            Dir.glob(File.join(destination_root, '**/*.{js,jsx,mjs,cjs}')).
+              reject { |file| file.end_with?('.eslintrc.js') }.
+              any?
           end
 
           def xcode_project_file
@@ -128,9 +128,8 @@ module WayOfWorking
           def github_org
             @github_org ||= begin
               remote_url = `git -C #{destination_root} remote get-url origin`.strip
-              return unless remote_url.match?(%r{github\.com[:/]([^/]+)/})
-
-              remote_url.match(%r{github\.com[:/]([^/]+)/})[1]
+              matchdata = remote_url.match(%r{github\.com[:/]([^/]+)/})
+              matchdata[1] if matchdata
             end
           end
 
