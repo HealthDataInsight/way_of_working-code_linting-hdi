@@ -40,12 +40,16 @@ module WayOfWorking
 
           CONFIG
 
+          def project_github_linters_directory
+            protect_files_in_codeowners '/.github/linters/'
+          end
+
           def copy_github_linters_rubocop_config_file
-            protect_and_copy_file '.github/linters/rubocop_defaults.yml'
+            copy_file '.github/linters/rubocop_defaults.yml'
           end
 
           def copy_github_linters_markdown_link_check_config_file
-            protect_and_copy_file '.github/linters/.markdown-link-check.json'
+            copy_file '.github/linters/.markdown-link-check.json'
           end
 
           def configure_eslint
