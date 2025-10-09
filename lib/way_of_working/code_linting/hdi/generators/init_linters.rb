@@ -52,6 +52,13 @@ module WayOfWorking
             copy_file '.github/linters/.markdown-link-check.json'
           end
 
+          def configure_markdownlint
+            # We don't have these files in the repo, but we want to protect them in CODEOWNERS
+            protect_files_in_codeowners '.markdownlintignore', '.markdownlint.*'
+
+            prepend_to_file 'CHANGELOG.md', "<!-- markdownlint-disable-file MD024 -->\n" if File.exist?('CHANGELOG.md')
+          end
+
           def configure_eslint
             if javascript_files_present?
               protect_and_copy_file '.eslintrc.js'
