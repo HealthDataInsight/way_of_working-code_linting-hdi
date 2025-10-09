@@ -72,7 +72,7 @@ module WayOfWorking
 
           # Load enabled linters from the YAML config file
           def enabled_linters
-            @enabled_linters ||= YAML.load_file('.mega-linter.yml')['ENABLE_LINTERS']
+            @enabled_linters ||= YAML.safe_load_file('.mega-linter.yml')['ENABLE_LINTERS']
           end
         end
       end
