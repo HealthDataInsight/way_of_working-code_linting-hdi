@@ -13,6 +13,8 @@ module WayOfWorking
 
           source_root ::WayOfWorking::CodeLinting::Hdi.source_root
 
+          CODE_STANDARDS_TEAM = 'code-standards-team'
+
           LINTING_BUILD_PHASE =
             "				2F0882F42AAB152D00DB0B2B /* ShellScript */,\n"
           LINTING_BUILD_PHASE_DETAILS = <<~CONFIG
@@ -41,19 +43,32 @@ module WayOfWorking
           # TODO: copy_rubocop_github_workflow_action
 
           def copy_github_linters_rubocop_config_file
-            copy_file '.github/linters/rubocop_defaults.yml'
+            protect_and_copy_file '.github/linters/rubocop_defaults.yml'
           end
 
           def copy_github_linters_markdown_link_check_config_file
-            copy_file '.github/linters/.markdown-link-check.json'
+            protect_and_copy_file '.github/linters/.markdown-link-check.json'
+          end
+
+          def configure_eslint
+            return unless javascript_files_present?
+
+            protect_and_copy_file '.eslintrc.js'
+
+            protect_files_in_codeowners('.eslintignore')
+
+            run 'npm install --save-dev ' \
+                'eslint-config-standard@^17.1.0 ' \
+                'eslint-plugin-cypress@^3.6.0 ' \
+                'eslint-plugin-jasmine@^4.2.2'
           end
 
           def copy_megalinter_github_workflow_action
-            copy_file '.github/workflows/mega-linter.yml'
+            protect_and_copy_file '.github/workflows/mega-linter.yml'
           end
 
           def copy_megalinter_dot_file
-            copy_file '.mega-linter.yml'
+            protect_and_copy_file '.mega-linter.yml'
           end
 
           def create_gitignore_if_missing
@@ -69,7 +84,7 @@ module WayOfWorking
           end
 
           def copy_rubocop_options_file
-            copy_file '.rubocop'
+            protect_and_copy_file '.rubocop'
           end
 
           def inject_swiftlint_into_xcode_project_build_process
@@ -86,6 +101,17 @@ module WayOfWorking
 
           private
 
+          def protect_and_copy_file(file)
+            protect_files_in_codeowners(file)
+            copy_file(file)
+          end
+
+          def javascript_files_present?
+            Dir.glob(File.join(destination_root, '**/*.{js,jsx,mjs,cjs}'))
+               .reject { |file| file.end_with?('.eslintrc.js') }
+               .any?
+          end
+
           def xcode_project_file
             Dir.glob(File.join(destination_root, '*.xcodeproj/project.pbxproj')).first
           end
@@ -95,6 +121,36 @@ module WayOfWorking
             return if behavior == :revoke || File.exist?(path)
 
             File.open(path, 'w', &:write)
+          end
+
+          def github_org
+            @github_org ||= begin
+              remote_url = `git -C #{destination_root} remote get-url origin`.strip
+              return unless remote_url.match?(%r{github\.com[:/]([^/]+)/})
+
+              remote_url.match(%r{github\.com[:/]([^/]+)/})[1]
+            end
+          end
+
+          def codeowners_file_path
+            ['.github/CODEOWNERS', 'CODEOWNERS', 'docs/CODEOWNERS'].each do |path|
+              full_path = File.join(destination_root, path)
+              return full_path if File.exist?(full_path)
+            end
+            File.join(destination_root, '.github/CODEOWNERS')
+          end
+
+          def protect_files_in_codeowners(*files)
+            return unless github_org
+
+            codeowners_path = codeowners_file_path
+            create_file(codeowners_path) unless File.exist?(codeowners_path)
+
+            owner = "@#{github_org}/#{CODE_STANDARDS_TEAM}"
+
+            files.each do |file|
+              append_to_file codeowners_path, "#{file} #{owner}\n"
+            end
           end
         end
       end
