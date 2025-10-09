@@ -3,8 +3,8 @@
 # See all available variables at https://megalinter.io/configuration/
 # and in linters documentation
 
-APPLY_FIXES: none  # all, none, or list of linter keys
-ENABLE_LINTERS:  # All other linters will be disabled by default
+APPLY_FIXES: none # all, none, or list of linter keys
+ENABLE_LINTERS: # All other linters will be disabled by default
   - ACTION_ACTIONLINT
   - API_SPECTRAL
   - ARM_ARM_TTK
