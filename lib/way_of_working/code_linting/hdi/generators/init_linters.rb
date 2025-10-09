@@ -53,16 +53,19 @@ module WayOfWorking
           end
 
           def configure_eslint
-            return unless javascript_files_present?
+            if javascript_files_present?
+              protect_and_copy_file '.eslintrc.js'
 
-            protect_and_copy_file '.eslintrc.js'
+              # We don't have an eslintignore file in the repo, but we want to protect it in CODEOWNERS
+              protect_files_in_codeowners '.eslintignore'
 
-            protect_files_in_codeowners('.eslintignore')
-
-            run 'npm install --save-dev ' \
-                'eslint-config-standard@^17.1.0 ' \
-                'eslint-plugin-cypress@^3.6.0 ' \
-                'eslint-plugin-jasmine@^4.2.2'
+              run 'npm install --save-dev ' \
+                  'eslint-config-standard@^17.1.0 ' \
+                  'eslint-plugin-cypress@^3.6.0 ' \
+                  'eslint-plugin-jasmine@^4.2.2'
+            else
+              say 'No JavaScript files found, skipping ESLint configuration'
+            end
           end
 
           def copy_megalinter_github_workflow_action
@@ -111,6 +114,7 @@ module WayOfWorking
           def javascript_files_present?
             Dir.glob(File.join(destination_root, '**/*.{js,jsx,mjs,cjs}')).
               reject { |file| file.end_with?('.eslintrc.js') }.
+              reject { |file| file.include?('/megalinter-reports/') }.
               any?
           end
 

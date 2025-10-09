@@ -62,7 +62,7 @@ The following tables detail the linters that we are currently using:
 | Python       | PYTHON_RUFF_FORMAT                    | [ruff-format](https://megalinter.io/latest/descriptors/python_ruff_format/) |
 | R            | R_LINTR                               | [lintr](https://megalinter.io/latest/descriptors/r_lintr/)                  |
 | Raku         | ~~RAKU_RAKU~~                         | Not Used                                                                    |
-| Ruby         | RUBY_RUBOCOP                          | [rubocop](https://megalinter.io/latest/descriptors/ruby_rubocop/)           |
+| Ruby         | ~~RUBY_RUBOCOP~~                      | Not Used (RuboCop is used directly)                                         |
 | Rust         | ~~RUST_CLIPPY~~                       | Not Used                                                                    |
 | Salesforce   | ~~SALESFORCE_LIGHTNING_FLOW_SCANNER~~ | Not Used                                                                    |
 | Salesforce   | ~~SALESFORCE_SFDX_SCANNER_APEX~~      | Not Used                                                                    |
