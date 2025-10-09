@@ -40,8 +40,6 @@ module WayOfWorking
 
           CONFIG
 
-          # TODO: copy_rubocop_github_workflow_action
-
           def copy_github_linters_rubocop_config_file
             protect_and_copy_file '.github/linters/rubocop_defaults.yml'
           end
