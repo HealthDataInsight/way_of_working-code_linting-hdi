@@ -56,10 +56,6 @@ module WayOfWorking
             end
             assert_equal 'Linter failed!', stderr.strip
           end
-
-          test 'linters are called in the right way' do
-            # TODO: More tests are needed. Ideally to expect different calls to run_rubocop and run_megalinter
-          end
         end
       end
     end

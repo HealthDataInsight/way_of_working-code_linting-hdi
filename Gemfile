@@ -13,4 +13,10 @@ gem 'railties', '~> 7.0', '>= 7.1.5.1'
 gem 'rake', '~> 13.0'
 
 # Security requirements
+gem 'cgi', '>= 0.4.2'
+gem 'nokogiri', '>= 1.18.4'
+gem 'rack-session', '>= 2.1.1'
+gem 'rack', '>= 3.1.16'
 gem 'rails-html-sanitizer', '>= 1.6.1'
+gem 'rexml', '>= 3.4.2'
+gem 'thor', '>= 1.4.0'
