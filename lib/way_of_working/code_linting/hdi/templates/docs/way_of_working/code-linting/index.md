@@ -7,11 +7,11 @@ layout: page
 
 ## Overview
 
-We use [MegaLinter](https://megalinter.io/) for multi-language linting, with [RuboCop](https://rubocop.org) separately for Ruby to support Minitest and Rails cops.
+We use [MegaLinter](https://megalinter.io/) for most of our linting, but we use [RuboCop](https://rubocop.org) separately for Ruby to support Minitest and Rails cops.
 
 Linters help by:
 - Catching syntax errors, undefined variables, and unused code early
-- Ensuring consistent code style across team and projects
+- Ensuring consistent code style across teams and projects
 - Providing automated quality improvements and best practices
 - Saving time in code review and debugging
 
@@ -23,7 +23,7 @@ Add linting to your project:
 way_of_working init code_linting
 ```
 
-This copies organizational coding standards to `.github/linters/` and adds GitHub Actions workflows that run automatically on commits.
+This copies organisational coding standards and GitHub Actions workflows to your project.
 
 {: .note }
 For Xcode projects, a SwiftLint build phase is automatically added to the project config.
@@ -36,17 +36,17 @@ Run linting locally:
 way_of_working exec code_linting
 ```
 
-This executes both MegaLinter and RuboCop against your code.
+executes both MegaLinter and RuboCop against your code.
 
 ## Configuration
 
-Language-specific configs are in `.github/linters/` (e.g., `.rubocop.yml`, `.eslintrc.json`, `.swiftlint.yml`). See [linters.md](linters.md) for the full list.
+Language-specific configs are in the project root or `.github/linters/`. See [linters.md](linters.md) for the complete list.
 
-To customize for your project, modify the config files as needed, but keep changes minimal and well-documented. Changes to linting configs require review by the code-standards-team.
+To customise for your project, talk to the code standards team and modify the config files as needed, keeping changes minimal and well documented. Changes to linting configs require Pull Request review by the code-standards-team.
 
 ## Handling Exceptions
 
-When linters flag false positives, use inline disable comments with justification:
+On the rare occasions when linters flag false positives, turn off rules with comments giving your justification:
 
 ```python
 # pylint: disable=line-too-long - URL cannot be broken
@@ -62,7 +62,7 @@ way_of_working exec document
 ```
 
 {: .important }
-If you disagree with any linter or coding style, please fork the repository and create a pull request with your proposed changes. The current standards are a starting point intended to evolve with team consensus.
+If you disagree with any linter or coding style, please fork the Way of Working code linting [repository](https://github.com/HealthDataInsight/way_of_working-code_linting-hdi) and create a pull request with your proposed changes. The current standards are a starting point intended to evolve with team consensus.
 
 ## Resources
 
