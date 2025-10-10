@@ -2,6 +2,7 @@
 
 require 'thor'
 require 'way_of_working/paths'
+require 'octokit'
 
 module WayOfWorking
   module CodeLinting
@@ -38,6 +39,25 @@ module WayOfWorking
             /* End PBXShellScriptBuildPhase section */
 
           CONFIG
+
+          def give_code_standards_team_rw_access_to_repo
+            return unless github_organisation && github_full_repo_name
+
+            client = octokit_client
+
+            say "Adding #{code_standards_team} team with write access to #{github_full_repo_name}..."
+
+            client.add_team_repository(
+              "#{github_organisation}/#{code_standards_team}",
+              github_full_repo_name,
+              permission: 'push'
+            )
+
+            say "Successfully granted write access to #{code_standards_team} team", :green
+          rescue Octokit::Error => e
+            say "Warning: Could not add team to repository: #{e.message}", :yellow
+            say 'You may need to configure this manually or ensure you have proper GitHub permissions', :yellow
+          end
 
           def project_github_linters_directory
             protect_files_in_codeowners '/.github/linters/'
@@ -111,6 +131,14 @@ module WayOfWorking
           end
 
           private
+
+          def octokit_client
+            @octokit_client ||= begin
+              # Try to use GITHUB_TOKEN environment variable, or let Octokit use netrc
+              token = ENV.fetch('GITHUB_TOKEN', nil)
+              Octokit::Client.new(access_token: token)
+            end
+          end
 
           def prepend_to_file_if_exists(file, content)
             file_path = File.join(destination_root, file)

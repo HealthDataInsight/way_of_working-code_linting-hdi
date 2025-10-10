@@ -23,6 +23,18 @@ module WayOfWorking
               matchdata[1] if matchdata
             end
           end
+
+          def github_repo_name
+            @github_repo_name ||= begin
+              remote_url = `git -C #{destination_root} remote get-url origin`.strip
+              matchdata = remote_url.match(%r{github\.com[:/][^/]+/([^/]+?)(\.git)?$})
+              matchdata[1] if matchdata
+            end
+          end
+
+          def github_full_repo_name
+            "#{github_organisation}/#{github_repo_name}" if github_organisation && github_repo_name
+          end
         end
       end
     end
