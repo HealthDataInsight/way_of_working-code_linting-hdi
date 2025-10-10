@@ -33,6 +33,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'octokit', '~> 9.1'
   spec.add_dependency 'way_of_working', '~> 2.0.1'
   spec.add_dependency 'zeitwerk', '~> 2.6.18'
 

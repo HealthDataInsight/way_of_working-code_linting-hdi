@@ -40,9 +40,7 @@ module WayOfWorking
             [:way_of_working]
           end
 
-          def tags
-            self.class.tags
-          end
+          delegate :tags, to: :class
 
           private
 

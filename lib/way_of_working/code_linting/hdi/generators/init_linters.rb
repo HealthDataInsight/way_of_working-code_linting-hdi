@@ -2,6 +2,7 @@
 
 require 'thor'
 require 'way_of_working/paths'
+require 'octokit'
 
 module WayOfWorking
   module CodeLinting
@@ -10,6 +11,7 @@ module WayOfWorking
         # This generator initialises the linter
         class InitLinters < Thor::Group
           include Thor::Actions
+          include GithubMetadata
 
           source_root ::WayOfWorking::CodeLinting::Hdi.source_root
 
@@ -38,6 +40,29 @@ module WayOfWorking
 
           CONFIG
 
+          def give_code_standards_team_rw_access_to_repo
+            return unless github_organisation && github_full_repo_name
+
+            client = octokit_client
+
+            say "Adding #{code_standards_team} team with write access to #{github_full_repo_name}..."
+
+            client.add_team_repository(
+              "#{github_organisation}/#{code_standards_team}",
+              github_full_repo_name,
+              permission: 'push'
+            )
+
+            say "Successfully granted write access to #{code_standards_team} team", :green
+          rescue Octokit::Error => e
+            say "Warning: Could not add team to repository: #{e.message}", :yellow
+            say 'You may need to configure this manually or ensure you have proper GitHub permissions', :yellow
+          end
+
+          def project_github_linters_directory
+            protect_files_in_codeowners '/.github/linters/'
+          end
+
           def copy_github_linters_rubocop_config_file
             copy_file '.github/linters/rubocop_defaults.yml'
           end
@@ -46,12 +71,35 @@ module WayOfWorking
             copy_file '.github/linters/.markdown-link-check.json'
           end
 
+          def configure_markdownlint
+            # We don't have these files in the repo, but we want to protect them in CODEOWNERS
+            protect_files_in_codeowners '.markdownlintignore', '.markdownlint.*'
+
+            prepend_to_file_if_exists 'CHANGELOG.md', "<!-- markdownlint-disable-file MD024 -->\n"
+          end
+
+          def configure_eslint
+            if javascript_files_present?
+              protect_and_copy_file '.eslintrc.js'
+
+              # We don't have an eslintignore file in the repo, but we want to protect it in CODEOWNERS
+              protect_files_in_codeowners '.eslintignore'
+
+              run 'npm install --save-dev ' \
+                  'eslint-config-standard@^17.1.0 ' \
+                  'eslint-plugin-cypress@^3.6.0 ' \
+                  'eslint-plugin-jasmine@^4.2.2'
+            else
+              say 'No JavaScript files found, skipping ESLint configuration'
+            end
+          end
+
           def copy_megalinter_github_workflow_action
-            copy_file '.github/workflows/mega-linter.yml'
+            protect_and_copy_file '.github/workflows/mega-linter.yml'
           end
 
           def copy_megalinter_dot_file
-            copy_file '.mega-linter.yml'
+            protect_and_copy_file '.mega-linter.yml'
           end
 
           def create_gitignore_if_missing
@@ -67,7 +115,7 @@ module WayOfWorking
           end
 
           def copy_rubocop_options_file
-            copy_file '.rubocop'
+            protect_and_copy_file '.rubocop'
           end
 
           def inject_swiftlint_into_xcode_project_build_process
@@ -84,6 +132,32 @@ module WayOfWorking
 
           private
 
+          def octokit_client
+            @octokit_client ||= begin
+              # Try to use GITHUB_TOKEN environment variable, or let Octokit use netrc
+              token = ENV.fetch('GITHUB_TOKEN', nil)
+              Octokit::Client.new(access_token: token)
+            end
+          end
+
+          def prepend_to_file_if_exists(file, content)
+            file_path = File.join(destination_root, file)
+
+            prepend_to_file file, content if File.exist?(file_path)
+          end
+
+          def protect_and_copy_file(file)
+            protect_files_in_codeowners(file)
+            copy_file(file)
+          end
+
+          def javascript_files_present?
+            Dir.glob(File.join(destination_root, '**/*.{js,jsx,mjs,cjs}')).
+              reject { |file| file.end_with?('.eslintrc.js') }.
+              reject { |file| file.include?('/megalinter-reports/') }.
+              any?
+          end
+
           def xcode_project_file
             Dir.glob(File.join(destination_root, '*.xcodeproj/project.pbxproj')).first
           end
@@ -93,6 +167,27 @@ module WayOfWorking
             return if behavior == :revoke || File.exist?(path)
 
             File.open(path, 'w', &:write)
+          end
+
+          def codeowners_file_path
+            ['.github/CODEOWNERS', 'CODEOWNERS', 'docs/CODEOWNERS'].each do |path|
+              full_path = File.join(destination_root, path)
+              return full_path if File.exist?(full_path)
+            end
+            File.join(destination_root, '.github/CODEOWNERS')
+          end
+
+          def protect_files_in_codeowners(*files)
+            return unless github_organisation
+
+            codeowners_path = codeowners_file_path
+            create_file(codeowners_path) unless File.exist?(codeowners_path)
+
+            owner = "@#{github_organisation}/#{code_standards_team}"
+
+            files.each do |file|
+              append_to_file codeowners_path, "#{file} #{owner}\n"
+            end
           end
         end
       end
