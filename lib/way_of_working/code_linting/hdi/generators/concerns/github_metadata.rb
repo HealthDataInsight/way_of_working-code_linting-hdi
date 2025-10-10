@@ -1,10 +1,12 @@
 # frozen_string_literal: true
+
 require 'active_support'
 
 module WayOfWorking
   module CodeLinting
     module Hdi
       module Generators
+        # This concern provides methods to get GitHub metadata
         module GithubMetadata
           extend ActiveSupport::Concern
 
