@@ -10,10 +10,9 @@ module WayOfWorking
         # This generator initialises the linter
         class InitLinters < Thor::Group
           include Thor::Actions
+          include GithubMetadata
 
           source_root ::WayOfWorking::CodeLinting::Hdi.source_root
-
-          CODE_STANDARDS_TEAM = 'code-standards-team'
 
           LINTING_BUILD_PHASE =
             "				2F0882F42AAB152D00DB0B2B /* ShellScript */,\n"
@@ -142,14 +141,6 @@ module WayOfWorking
             File.open(path, 'w', &:write)
           end
 
-          def github_org
-            @github_org ||= begin
-              remote_url = `git -C #{destination_root} remote get-url origin`.strip
-              matchdata = remote_url.match(%r{github\.com[:/]([^/]+)/})
-              matchdata[1] if matchdata
-            end
-          end
-
           def codeowners_file_path
             ['.github/CODEOWNERS', 'CODEOWNERS', 'docs/CODEOWNERS'].each do |path|
               full_path = File.join(destination_root, path)
@@ -159,12 +150,12 @@ module WayOfWorking
           end
 
           def protect_files_in_codeowners(*files)
-            return unless github_org
+            return unless github_organisation
 
             codeowners_path = codeowners_file_path
             create_file(codeowners_path) unless File.exist?(codeowners_path)
 
-            owner = "@#{github_org}/#{CODE_STANDARDS_TEAM}"
+            owner = "@#{github_organisation}/#{code_standards_team}"
 
             files.each do |file|
               append_to_file codeowners_path, "#{file} #{owner}\n"

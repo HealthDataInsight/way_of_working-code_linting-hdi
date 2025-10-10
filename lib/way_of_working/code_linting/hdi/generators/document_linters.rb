@@ -14,6 +14,7 @@ module WayOfWorking
         # This class is responsible for generating linter documentation
         class DocumentLinters < Thor::Group
           include Thor::Actions # Mixin for action methods provided by Thor
+          include GithubMetadata
 
           # Set the source root for the templates
           source_root ::WayOfWorking::CodeLinting::Hdi.source_root
@@ -41,7 +42,7 @@ module WayOfWorking
           # Method to create the linter documentation using a template
           def create_linters_documentation
             template 'docs/way_of_working/code-linting/linters.md'
-            copy_file 'docs/way_of_working/code-linting/index.md'
+            template 'docs/way_of_working/code-linting/index.md'
           end
 
           private

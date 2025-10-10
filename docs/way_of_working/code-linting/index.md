@@ -42,7 +42,8 @@ executes both MegaLinter and RuboCop against your code.
 
 Language-specific configs are in the project root or `.github/linters/`. See [linters.md](linters.md) for the complete list.
 
-To customise for your project, talk to the code standards team and modify the config files as needed, keeping changes minimal and well documented. Changes to linting configs require Pull Request review by the code-standards-team.
+To customise for your project, talk to a member of [code-standards-team](https://github.com/orgs/HealthDataInsight/teams/code-standards-team) and modify the config files as needed, keeping changes minimal and well documented.
+Pull Request changing linting configs require review by a member of code-standards-team.
 
 ## Handling Exceptions
 
