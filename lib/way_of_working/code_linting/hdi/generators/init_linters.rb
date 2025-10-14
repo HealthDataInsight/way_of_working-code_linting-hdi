@@ -59,7 +59,7 @@ module WayOfWorking
             say 'You may need to configure this manually or ensure you have proper GitHub permissions', :yellow
           end
 
-          def project_github_linters_directory
+          def protect_github_linters_directory
             protect_files_in_codeowners '/.github/linters/'
           end
 
@@ -83,6 +83,11 @@ module WayOfWorking
               protect_and_copy_file '.eslintrc.js'
 
               # We don't have an eslintignore file in the repo, but we want to protect it in CODEOWNERS
+              # append_to_file '.eslintignore', "coverage/\n"
+              # append_to_file '.eslintignore', "megalinter-reports/\n"
+              # append_to_file '.eslintignore', "node_modules/\n"
+              # append_to_file '.eslintignore', "public/\n"
+              # append_to_file '.eslintignore', "vendor/\n"
               protect_files_in_codeowners '.eslintignore'
 
               run 'npm install --save-dev ' \
