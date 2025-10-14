@@ -83,11 +83,11 @@ module WayOfWorking
               protect_and_copy_file '.eslintrc.js'
 
               # We don't have an eslintignore file in the repo, but we want to protect it in CODEOWNERS
-              # append_to_file '.eslintignore', "coverage/\n"
-              # append_to_file '.eslintignore', "megalinter-reports/\n"
-              # append_to_file '.eslintignore', "node_modules/\n"
-              # append_to_file '.eslintignore', "public/\n"
-              # append_to_file '.eslintignore', "vendor/\n"
+              append_foldername_to_file_if_folder_exists '.eslintignore', 'coverage'
+              append_to_file '.eslintignore', "megalinter-reports/\n"
+              append_foldername_to_file_if_folder_exists '.eslintignore', 'node_modules'
+              append_foldername_to_file_if_folder_exists '.eslintignore', 'public'
+              append_foldername_to_file_if_folder_exists '.eslintignore', 'vendor'
               protect_files_in_codeowners '.eslintignore'
 
               run 'npm install --save-dev ' \
@@ -149,6 +149,12 @@ module WayOfWorking
             file_path = File.join(destination_root, file)
 
             prepend_to_file file, content if File.exist?(file_path)
+          end
+
+          def append_foldername_to_file_if_folder_exists(file, foldername)
+            folder_path = File.join(destination_root, foldername)
+
+            append_to_file file, "#{foldername}\n" if File.directory?(folder_path)
           end
 
           def protect_and_copy_file(file)
