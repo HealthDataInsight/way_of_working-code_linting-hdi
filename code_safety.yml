@@ -43,7 +43,7 @@ file safety:
   CHANGELOG.md:
     comments:
     reviewed_by: shilpigoeldev
-    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+    safe_revision: a7cb816f5ea6c60b8050a8f15eb906dff0e7be72
   Gemfile:
     comments:
     reviewed_by: timgentry
@@ -51,7 +51,7 @@ file safety:
   Gemfile.lock:
     comments:
     reviewed_by: shilpigoeldev
-    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+    safe_revision: a7cb816f5ea6c60b8050a8f15eb906dff0e7be72
   LICENSE.txt:
     comments:
     reviewed_by: shilpigoeldev
@@ -86,8 +86,8 @@ file safety:
     safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
   lib/way_of_working/code_linting/hdi/generators/concerns/github_metadata.rb:
     comments:
-    reviewed_by:
-    safe_revision:
+    reviewed_by: shilpigoeldev
+    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
   lib/way_of_working/code_linting/hdi/generators/document_linters.rb:
     comments:
     reviewed_by: timgentry
@@ -103,7 +103,7 @@ file safety:
   lib/way_of_working/code_linting/hdi/generators/init_linters.rb:
     comments:
     reviewed_by: shilpigoeldev
-    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+    safe_revision: 8452b01ebb948e84ea0c8389da0187571ca48dbb
   lib/way_of_working/code_linting/hdi/github_audit_rule.rb:
     comments:
     reviewed_by: shilpigoeldev
@@ -155,7 +155,7 @@ file safety:
   lib/way_of_working/code_linting/hdi/version.rb:
     comments:
     reviewed_by: shilpigoeldev
-    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+    safe_revision: a7cb816f5ea6c60b8050a8f15eb906dff0e7be72
   test/resources/XcodeApp.xcodeproj/project.pbxproj:
     comments:
     reviewed_by: shilpigoeldev
