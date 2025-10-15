@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Switched to our custom HDI flavour of MegaLinter for faster GitHub action linting
+- Switched to MegaLinter v9
 - Updated the linting GitHub workflow in line with upstream changes
 
 ## [1.0.0] - 2025-01-27
