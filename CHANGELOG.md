@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2025-10-15
+
 ### Added
 
 - Switched from Standard to ESLint (with Standard rules) to enable us to add Cypress and Jasmine globals
@@ -15,8 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Switched to our custom HDI flavour of MegaLinter for faster GitHub action linting
+- Switched to MegaLinter v9
 - Updated the linting GitHub workflow in line with upstream changes
+- Rewritten the documentation to be easier to read for both humans and LLMs.
 
 ## [1.0.0] - 2025-01-27
 
@@ -27,5 +30,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added MegaLinter for linting common file formats with generator command and rake task
 - Added a GitHub audit rule to check that linting is used and configured correctly
 
-[unreleased]: https://github.com/HealthDataInsight/way_of_working-code_linting-hdi/compare/v1.0.0...HEAD
+[unreleased]: https://github.com/HealthDataInsight/way_of_working-code_linting-hdi/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/HealthDataInsight/way_of_working-code_linting-hdi/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/HealthDataInsight/way_of_working-code_linting-hdi/releases/tag/v1.0.0

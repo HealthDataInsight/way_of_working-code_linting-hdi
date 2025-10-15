@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    way_of_working-code_linting-hdi (1.0.0)
+    way_of_working-code_linting-hdi (1.1.0)
       octokit (~> 9.1)
       way_of_working (~> 2.0.1)
       zeitwerk (~> 2.6.18)
