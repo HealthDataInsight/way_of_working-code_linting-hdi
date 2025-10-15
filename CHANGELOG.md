@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Switched to MegaLinter v9
 - Updated the linting GitHub workflow in line with upstream changes
+- Rewritten the documentation to be easier to read for both humans and LLMs.
 
 ## [1.0.0] - 2025-01-27
 
