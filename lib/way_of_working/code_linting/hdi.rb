@@ -13,7 +13,6 @@ end
 
 loader = Zeitwerk::Loader.for_gem_extension(WayOfWorking::CodeLinting)
 loader.collapse("#{__dir__}/hdi/generators/concerns")
-loader.ignore("#{__dir__}/hdi/plugin.rb")
 loader.setup
 
 module WayOfWorking
