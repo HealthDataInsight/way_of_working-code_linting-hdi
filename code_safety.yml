@@ -43,7 +43,7 @@ file safety:
   CHANGELOG.md:
     comments:
     reviewed_by: shilpigoeldev
-    safe_revision: a7cb816f5ea6c60b8050a8f15eb906dff0e7be72
+    safe_revision: 021a64c32f5dc6541497d661b683a36bc793c091
   Gemfile:
     comments:
     reviewed_by: timgentry
@@ -51,7 +51,7 @@ file safety:
   Gemfile.lock:
     comments:
     reviewed_by: shilpigoeldev
-    safe_revision: a7cb816f5ea6c60b8050a8f15eb906dff0e7be72
+    safe_revision: 021a64c32f5dc6541497d661b683a36bc793c091
   LICENSE.txt:
     comments:
     reviewed_by: shilpigoeldev
@@ -155,7 +155,7 @@ file safety:
   lib/way_of_working/code_linting/hdi/version.rb:
     comments:
     reviewed_by: shilpigoeldev
-    safe_revision: a7cb816f5ea6c60b8050a8f15eb906dff0e7be72
+    safe_revision: 021a64c32f5dc6541497d661b683a36bc793c091
   test/resources/XcodeApp.xcodeproj/project.pbxproj:
     comments:
     reviewed_by: shilpigoeldev
