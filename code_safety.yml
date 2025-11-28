@@ -11,7 +11,7 @@ file safety:
   ".github/linters/.markdown-link-check.json":
     comments:
     reviewed_by: timgentry
-    safe_revision: 2af6973c231a711ae512dc2d3bd3280b11382d6c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   ".github/linters/rubocop_defaults.yml":
     comments:
     reviewed_by: shilpigoeldev
@@ -19,15 +19,15 @@ file safety:
   ".github/workflows/inclusive-language.yml":
     comments:
     reviewed_by: timgentry
-    safe_revision: 2af6973c231a711ae512dc2d3bd3280b11382d6c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   ".github/workflows/main.yml":
     comments:
     reviewed_by: timgentry
-    safe_revision: 2af6973c231a711ae512dc2d3bd3280b11382d6c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   ".github/workflows/mega-linter.yml":
     comments:
     reviewed_by: timgentry
-    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   ".gitignore":
     comments:
     reviewed_by: timgentry
@@ -35,7 +35,7 @@ file safety:
   ".mega-linter.yml":
     comments:
     reviewed_by: timgentry
-    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   ".rubocop":
     comments:
     reviewed_by: shilpigoeldev
@@ -75,7 +75,7 @@ file safety:
   docs/way_of_working/code-linting/index.md:
     comments:
     reviewed_by: timgentry
-    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   docs/way_of_working/code-linting/linters.md:
     comments:
     reviewed_by: timgentry
@@ -83,7 +83,7 @@ file safety:
   lib/way_of_working/code_linting/hdi.rb:
     comments:
     reviewed_by: timgentry
-    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   lib/way_of_working/code_linting/hdi/generators/concerns/github_metadata.rb:
     comments:
     reviewed_by: shilpigoeldev
@@ -114,8 +114,8 @@ file safety:
     safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
   lib/way_of_working/code_linting/hdi/plugin.rb:
     comments:
-    reviewed_by: shilpigoeldev
-    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+    reviewed_by: timgentry
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   lib/way_of_working/code_linting/hdi/supported_linter.rb:
     comments:
     reviewed_by: shilpigoeldev
@@ -147,7 +147,7 @@ file safety:
   lib/way_of_working/code_linting/hdi/templates/docs/way_of_working/code-linting/index.md.tt:
     comments:
     reviewed_by: timgentry
-    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   lib/way_of_working/code_linting/hdi/templates/docs/way_of_working/code-linting/linters.md.tt:
     comments:
     reviewed_by: shilpigoeldev
@@ -167,7 +167,7 @@ file safety:
   test/way_of_working/audit_github_stub_classes.rb:
     comments:
     reviewed_by: timgentry
-    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
+    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   test/way_of_working/code_linting/hdi/generators/document_linters_test.rb:
     comments:
     reviewed_by: shilpigoeldev
