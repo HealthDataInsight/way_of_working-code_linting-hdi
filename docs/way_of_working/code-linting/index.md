@@ -1,6 +1,8 @@
 ---
 has_children: true
 layout: page
+status: REQUIRED
+enforcement: manual
 ---
 
 # Code Linting
