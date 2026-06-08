@@ -23,7 +23,7 @@ file safety:
   ".github/workflows/main.yml":
     comments:
     reviewed_by: timgentry
-    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
   ".github/workflows/mega-linter.yml":
     comments:
     reviewed_by: timgentry
@@ -42,16 +42,16 @@ file safety:
     safe_revision: b89ef4afd67d02b6f6ff323bb9accde2dcf2686d
   CHANGELOG.md:
     comments:
-    reviewed_by: shilpigoeldev
-    safe_revision: 021a64c32f5dc6541497d661b683a36bc793c091
+    reviewed_by: timgentry
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
   Gemfile:
     comments:
     reviewed_by: timgentry
     safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
   Gemfile.lock:
     comments:
-    reviewed_by: shilpigoeldev
-    safe_revision: 021a64c32f5dc6541497d661b683a36bc793c091
+    reviewed_by: timgentry
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
   LICENSE.txt:
     comments:
     reviewed_by: shilpigoeldev
@@ -59,7 +59,7 @@ file safety:
   README.md:
     comments:
     reviewed_by: timgentry
-    safe_revision: 2af6973c231a711ae512dc2d3bd3280b11382d6c
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
   Rakefile:
     comments:
     reviewed_by: shilpigoeldev
@@ -154,8 +154,8 @@ file safety:
     safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
   lib/way_of_working/code_linting/hdi/version.rb:
     comments:
-    reviewed_by: shilpigoeldev
-    safe_revision: 021a64c32f5dc6541497d661b683a36bc793c091
+    reviewed_by: timgentry
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
   test/resources/XcodeApp.xcodeproj/project.pbxproj:
     comments:
     reviewed_by: shilpigoeldev
@@ -178,12 +178,12 @@ file safety:
     safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
   test/way_of_working/code_linting/hdi/github_audit_rule_test.rb:
     comments:
-    reviewed_by: shilpigoeldev
-    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+    reviewed_by: timgentry
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
   test/way_of_working/code_linting/hdi/zeitwerk_loader_test.rb:
     comments:
-    reviewed_by: shilpigoeldev
-    safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
+    reviewed_by: timgentry
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
   test/way_of_working/code_linting/hdi_test.rb:
     comments:
     reviewed_by: shilpigoeldev
@@ -191,4 +191,4 @@ file safety:
   way_of_working-code_linting-hdi.gemspec:
     comments:
     reviewed_by: timgentry
-    safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
+    safe_revision: 8fff2a6901fc08302f9144a621bfb855c8dd080e
