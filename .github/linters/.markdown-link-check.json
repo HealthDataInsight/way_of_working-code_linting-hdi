@@ -5,6 +5,12 @@
         },
         {
             "pattern": "^adr-template.md"
+        },
+        {
+            "pattern": "^https://healthdatainsight.sharepoint.com"
+        },
+        {
+            "pattern": "^https://img.shields.io"
         }
     ],
     "retryOn429": true,
