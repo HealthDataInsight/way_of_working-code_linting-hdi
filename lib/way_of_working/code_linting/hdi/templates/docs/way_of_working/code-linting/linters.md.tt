@@ -8,6 +8,7 @@ parent: Code Linting
 
 The following tables detail the linters that we are currently using:
 <% @types.each do |type, linters| -%>
+<% next if linters.empty? # Scraped page is outside our control -%>
 
 ## <%= type %>
 

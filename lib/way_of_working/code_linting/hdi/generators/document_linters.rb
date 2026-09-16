@@ -29,6 +29,9 @@ module WayOfWorking
 
             # Iterate over each linter type in the parsed HTML
             parse_linter_types_html do |type, html_rows|
+              # Scraped page adds heading-only sections (e.g. "Comments") with no table
+              next if html_rows.empty?
+
               @types[type] = []
 
               parse_linter_rows(html_rows) do |constant_name, language, name, link|
@@ -54,7 +57,7 @@ module WayOfWorking
             doc.css('article h2').each do |h2|
               type = h2.text.strip
 
-              yield type, h2.next_element.css('tbody tr')
+              yield type, h2.next_element&.css('tbody tr') || []
             end
           end
 
