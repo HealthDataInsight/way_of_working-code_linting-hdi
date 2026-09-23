@@ -83,6 +83,7 @@ module WayOfWorking
               protect_and_copy_file '.eslintrc.js'
 
               # We don't have an eslintignore file in the repo, but we want to protect it in CODEOWNERS
+              create_file_if_missing '.eslintignore'
               append_foldername_to_file_if_folder_exists '.eslintignore', 'coverage'
               append_to_file '.eslintignore', "megalinter-reports/\n"
               append_foldername_to_file_if_folder_exists '.eslintignore', 'node_modules'

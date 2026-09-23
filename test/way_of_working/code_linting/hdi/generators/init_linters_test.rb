@@ -43,6 +43,15 @@ module WayOfWorking
             end
           end
 
+          test 'eslintignore created when missing' do
+            File.write(destination_root.join('app.js'), '')
+            InitLinters.any_instance.expects(:run).with(regexp_matches(/\Anpm install/))
+
+            run_generator
+
+            assert_file '.eslintignore', "megalinter-reports/\n"
+          end
+
           test 'swiftlint build phase added to xcode project' do
             prepare_xcode_project
 
