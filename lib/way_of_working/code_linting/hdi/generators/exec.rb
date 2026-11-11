@@ -44,7 +44,7 @@ module WayOfWorking
             say(Rainbow("\nTotal time taken: #{(Time.now - @start_time).to_i} seconds").yellow)
 
             if !@rubocop_ok || !@megalinter_ok
-              abort(Rainbow("\nLinter failed!").red)
+              abort(Rainbow("\nLinter failed!").red) # rubocop:disable Rails/Exit -- Thor CLI, not a Rails app
             else
               say(Rainbow("\nLinter Succeeded!").green)
             end
@@ -58,7 +58,7 @@ module WayOfWorking
             File.dirname(path)
           end
 
-          def run_rubocop(arguments)
+          def run_rubocop(arguments) # rubocop:disable Naming/PredicateMethod -- runs RuboCop, returns success
             # We lazy-load RuboCop so that the task doesn't dramatically impact the
             # load time of our commands.
             require 'rubocop'
