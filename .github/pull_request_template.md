@@ -1,3 +1,5 @@
+# Pull Request Details
+
 ## What?
 
 {Please write a few concise sentences outlining your changes and their overall impact, avoiding overly technical language. Reference relevant issue tracker tickets, but provide a stand-alone description that doesn’t require more than a few seconds to grasp.
@@ -20,6 +22,12 @@ e.g. This includes a migration, model and controller for user authentication. I'
 ## Testing?
 
 {Including tests along with code updates is essential as it prevents merging code without tests or failing tests, which could pose risks if overlooked. It's equally important to describe how you've tested harder-to-test code, like infrastructure code, and to communicate any untested conditions or edge cases and their associated risks to the reviewer.}
+
+## AI Contribution
+
+{Disclose any AI tools (e.g. GitHub Copilot, ChatGPT, Claude) used in this Pull Request, describing what they contributed. This helps reviewers understand the level of AI involvement and apply appropriate scrutiny.
+
+e.g. Claude 9.9 wrote the documentation and tests, or a team of GPT-9o agents wrote everything.}
 
 ## Screenshots (optional)
 
