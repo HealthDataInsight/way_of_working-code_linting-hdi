@@ -102,6 +102,7 @@ module WayOfWorking
                   'eslint-plugin-cypress@^7.0.4 ' \
                   'globals@^17.14.0 ' \
                   'neostandard@^0.14.1'
+              run 'npm pkg set scripts.lint="eslint ." scripts.lint:fix="eslint . --fix"'
             else
               say 'No JavaScript files found, skipping ESLint configuration'
             end

@@ -50,6 +50,8 @@ module WayOfWorking
             File.write(destination_root.join('.eslintrc.js'), '')
             File.write(destination_root.join('.eslintignore'), '')
             InitLinters.any_instance.expects(:run).with(regexp_matches(/\Anpm install --save-dev eslint@/))
+            InitLinters.any_instance.expects(:run).
+              with('npm pkg set scripts.lint="eslint ." scripts.lint:fix="eslint . --fix"')
 
             run_generator
 
