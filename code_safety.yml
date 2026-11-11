@@ -120,10 +120,6 @@ file safety:
     comments:
     reviewed_by: shilpigoeldev
     safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
-  lib/way_of_working/code_linting/hdi/templates/.eslintrc.js:
-    comments:
-    reviewed_by: timgentry
-    safe_revision: 8452b01ebb948e84ea0c8389da0187571ca48dbb
   lib/way_of_working/code_linting/hdi/templates/.github/linters/.markdown-link-check.json:
     comments:
     reviewed_by: timgentry

@@ -10,12 +10,6 @@ module WayOfWorking
           destination WayOfWorking::CodeLinting::Hdi.root.join('tmp/generators')
           setup :prepare_destination
 
-          test 'generator runs without errors' do
-            assert_nothing_raised do
-              run_generator
-            end
-          end
-
           test 'files are created and revoked' do
             run_generator
 
@@ -33,9 +27,9 @@ module WayOfWorking
           test 'sections with no linter rows are skipped' do
             gen = WayOfWorking::CodeLinting::Hdi::Generators::DocumentLinters.new
             gen.stubs(:enabled_linters).returns([])
-            gen.stubs(:parse_linter_types_html)
-               .yields('Languages', [linter_row])
-               .then.yields('Comments', [])
+            gen.stubs(:parse_linter_types_html).
+              yields('Languages', [linter_row]).
+              then.yields('Comments', [])
 
             assert_nothing_raised { gen.prepare_linter_lists }
 

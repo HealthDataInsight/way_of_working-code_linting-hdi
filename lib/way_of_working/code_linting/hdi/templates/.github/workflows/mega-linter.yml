@@ -3,7 +3,7 @@
 ---
 name: MegaLinter
 
-on: # yamllint disable-line rule:truthy - false positive
+"on":
   # Trigger mega-linter at key points in the PR process
   pull_request:
     types:
