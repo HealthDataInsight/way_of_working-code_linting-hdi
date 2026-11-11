@@ -45,6 +45,22 @@ module WayOfWorking
             end
           end
 
+          test 'javascript projects get a flat eslint config' do
+            File.write(destination_root.join('app.js'), '')
+            File.write(destination_root.join('.eslintrc.js'), '')
+            File.write(destination_root.join('.eslintignore'), '')
+            InitLinters.any_instance.expects(:run).with(regexp_matches(/\Anpm install --save-dev eslint@/))
+
+            run_generator
+
+            assert_file 'eslint.config.js'
+            assert_no_file '.eslintrc.js'
+            assert_no_file '.eslintignore'
+            assert_file '.mega-linter.yml' do |content|
+              assert_match('JAVASCRIPT_ES_PRE_COMMANDS', content)
+            end
+          end
+
           test 'swiftlint build phase added to xcode project' do
             prepare_xcode_project
 
