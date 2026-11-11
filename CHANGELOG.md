@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- JavaScript projects get `npm run lint` and `npm run lint:fix` scripts in `package.json` (#14)
+
 ### Changed
 
 - Replaced the `.eslintrc.js` and `.eslintignore` templates with an ESLint flat config (`eslint.config.js`) using neostandard, as MegaLinter's bundled ESLint no longer reads legacy config; MegaLinter now runs the project's own eslint
