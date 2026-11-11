@@ -8,6 +8,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Replaced the `.eslintrc.js` and `.eslintignore` templates with an ESLint flat config (`eslint.config.js`) using neostandard, as MegaLinter's bundled ESLint no longer reads legacy config; MegaLinter now runs the project's own eslint
+
+### Fixed
+
+- MegaLinter no longer runs out of runner disk space: the HDI custom flavor action now frees space before pulling its image (HealthDataInsight/megalinter-custom-flavor-hdi#2)
+
 ## [1.1.2] - 2026-06-08
 
 ### Changed

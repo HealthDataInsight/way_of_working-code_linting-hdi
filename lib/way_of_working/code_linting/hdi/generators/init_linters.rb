@@ -40,6 +40,18 @@ module WayOfWorking
 
           CONFIG
 
+          # Only for repos with JavaScript: without a package-lock.json, `npm ci` would fail the run
+          MEGALINTER_ESLINT_CONFIG = <<~CONFIG
+            # Run the project's own eslint and eslint.config.js (the same as `npx eslint`).
+            # MegaLinter's bundled eslint can't resolve the config's plugins (neostandard etc.).
+            JAVASCRIPT_ES_PRE_COMMANDS:
+              - command: npm ci --ignore-scripts --no-audit --no-fund
+                cwd: workspace
+                continue_if_failed: false
+            JAVASCRIPT_ES_CLI_EXECUTABLE: node_modules/.bin/eslint
+
+          CONFIG
+
           def give_code_standards_team_rw_access_to_repo
             return unless github_organisation && github_full_repo_name
 
@@ -80,20 +92,16 @@ module WayOfWorking
 
           def configure_eslint
             if javascript_files_present?
-              protect_and_copy_file '.eslintrc.js'
-
-              # We don't have an eslintignore file in the repo, but we want to protect it in CODEOWNERS
-              append_foldername_to_file_if_folder_exists '.eslintignore', 'coverage'
-              append_to_file '.eslintignore', "megalinter-reports/\n"
-              append_foldername_to_file_if_folder_exists '.eslintignore', 'node_modules'
-              append_foldername_to_file_if_folder_exists '.eslintignore', 'public'
-              append_foldername_to_file_if_folder_exists '.eslintignore', 'vendor'
-              protect_files_in_codeowners '.eslintignore'
+              # ESLint 9+ (as bundled with MegaLinter) only reads flat config
+              remove_file '.eslintrc.js'
+              remove_file '.eslintignore'
+              protect_and_copy_file 'eslint.config.js'
 
               run 'npm install --save-dev ' \
-                  'eslint-config-standard@^17.1.0 ' \
-                  'eslint-plugin-cypress@^3.6.0 ' \
-                  'eslint-plugin-jasmine@^4.2.2'
+                  'eslint@^10.14.0 ' \
+                  'eslint-plugin-cypress@^7.0.4 ' \
+                  'globals@^17.14.0 ' \
+                  'neostandard@^0.14.1'
             else
               say 'No JavaScript files found, skipping ESLint configuration'
             end
@@ -105,6 +113,9 @@ module WayOfWorking
 
           def copy_megalinter_dot_file
             protect_and_copy_file '.mega-linter.yml'
+            return unless javascript_files_present?
+
+            inject_into_file '.mega-linter.yml', MEGALINTER_ESLINT_CONFIG, before: 'SHOW_ELAPSED_TIME:'
           end
 
           def create_gitignore_if_missing
@@ -151,12 +162,6 @@ module WayOfWorking
             prepend_to_file file, content if File.exist?(file_path)
           end
 
-          def append_foldername_to_file_if_folder_exists(file, foldername)
-            folder_path = File.join(destination_root, foldername)
-
-            append_to_file file, "#{foldername}\n" if File.directory?(folder_path)
-          end
-
           def protect_and_copy_file(file)
             protect_files_in_codeowners(file)
             copy_file(file)
@@ -164,7 +169,7 @@ module WayOfWorking
 
           def javascript_files_present?
             Dir.glob(File.join(destination_root, '**/*.{js,jsx,mjs,cjs}')).
-              reject { |file| file.end_with?('.eslintrc.js') }.
+              reject { |file| file.end_with?('eslint.config.js') }.
               reject { |file| file.include?('/megalinter-reports/') }.
               any?
           end
