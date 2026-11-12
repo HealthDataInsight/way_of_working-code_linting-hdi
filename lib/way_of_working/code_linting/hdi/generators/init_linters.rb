@@ -79,8 +79,9 @@ module WayOfWorking
             copy_file '.github/linters/rubocop_defaults.yml'
           end
 
-          def copy_github_linters_markdown_link_check_config_file
-            copy_file '.github/linters/.markdown-link-check.json'
+          def remove_github_linters_markdown_link_check_config_file
+            # MegaLinter no longer ships markdown-link-check
+            remove_file '.github/linters/.markdown-link-check.json'
           end
 
           def configure_markdownlint
