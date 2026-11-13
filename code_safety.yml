@@ -8,10 +8,6 @@ file safety:
     comments:
     reviewed_by: timgentry
     safe_revision: 82687366222b885cbc41449f5bbd30fe9440cd4c
-  ".github/linters/.markdown-link-check.json":
-    comments:
-    reviewed_by: timgentry
-    safe_revision: 9c246b038991ac78d79effd5f960e90a6a3e4547
   ".github/linters/rubocop_defaults.yml":
     comments:
     reviewed_by: shilpigoeldev
@@ -120,10 +116,6 @@ file safety:
     comments:
     reviewed_by: shilpigoeldev
     safe_revision: 0c7aeda9a9a90b16cea0f1921e29b21d4f27e5ac
-  lib/way_of_working/code_linting/hdi/templates/.github/linters/.markdown-link-check.json:
-    comments:
-    reviewed_by: timgentry
-    safe_revision: 2af6973c231a711ae512dc2d3bd3280b11382d6c
   lib/way_of_working/code_linting/hdi/templates/.github/linters/rubocop_defaults.yml:
     comments:
     reviewed_by: shilpigoeldev
