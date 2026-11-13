@@ -20,7 +20,6 @@ module WayOfWorking
             run_generator
 
             assert_file '.github/linters/rubocop_defaults.yml'
-            assert_file '.github/linters/.markdown-link-check.json'
             assert_file '.github/workflows/mega-linter.yml'
             assert_file '.mega-linter.yml' do |content|
               refute_match('JAVASCRIPT_ES_PRE_COMMANDS', content)
@@ -43,6 +42,15 @@ module WayOfWorking
               refute_match("megalinter-reports/\n", content)
               refute_match(".rubocop-https---*\n", content)
             end
+          end
+
+          test 'legacy markdown-link-check config is removed' do
+            FileUtils.mkdir_p(destination_root.join('.github/linters'))
+            File.write(destination_root.join('.github/linters/.markdown-link-check.json'), '{}')
+
+            run_generator
+
+            assert_no_file '.github/linters/.markdown-link-check.json'
           end
 
           test 'javascript projects get a flat eslint config' do

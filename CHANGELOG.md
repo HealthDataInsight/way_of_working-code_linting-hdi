@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Replaced the `.eslintrc.js` and `.eslintignore` templates with an ESLint flat config (`eslint.config.js`) using neostandard, as MegaLinter's bundled ESLint no longer reads legacy config; MegaLinter now runs the project's own eslint
+- Removed linters that MegaLinter no longer ships from the `.mega-linter.yml` template; their replacements (e.g. `REPOSITORY_SECRETLINT`, `REPOSITORY_CHECKOV`, `REPOSITORY_GIT_DIFF`, `SPELL_LYCHEE`) were already enabled
+
+### Removed
+
+- The `.github/linters/.markdown-link-check.json` template, as MegaLinter no longer ships markdown-link-check; the generator now deletes it from existing projects
 
 ### Fixed
 
